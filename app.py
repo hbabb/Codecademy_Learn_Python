@@ -9,15 +9,13 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.magic8ball import get_fortune
 from scripts.shipping import get_all_shipping_costs, find_cheapest_shipping_method
 
-app = Flask(__name__,
-            template_folder='../templates', # Points to original templates folder
-            static_folder='../static') # Points to original static folder
+app = Flask(__name__)
 
 # Define routes using original app.py code
 @app.route('/')
 def home():
     # home route code here
-    return render_template(home.html)
+    return render_template('home.html')
 
 # Magic 8 Ball route
 @app.route('/magic8ball', methods=['GET', 'POST'])

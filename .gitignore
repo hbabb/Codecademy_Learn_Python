@@ -1,0 +1,17 @@
+# created by virtualenv automatically
+.venv 
+/.venv
+.venv/
+/.venv/*
+
+# PyCharm
+.idea/
+.idea/*
+/.idea
+/.idea/*
+
+# VS Code
+.vscode/
+/.vscode/*
+.vscode
+/.vscode/*

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sal's Shipping Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/shipping.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sal's Shipping Calculator</h1>
+            <a href="/" class="back-link">← Back to Home</a>
+        </header>
+
+        <main>
+            <div class="shipping-container">
+                <div class="instructions">
+                    <p>Enter the weight of your package to find the cheapest shipping method!</p>
+                </div>
+
+                <form method="POST" class="weight-form">
+                    <div class="form-group">
+                        <label for="weight">Package Weight (pounds):</label>
+                        <input type="number" id="weight" name="weight" value="{{ weight if weight else '' }}"
+                               min="0.01" step="0.01" placeholder="Enter weight in pounds" required>
+                    </div>
+
+                    <button type="submit" class="calculate-btn">Calculate Shipping Costs</button>
+                </form>
+
+                {% if error %}
+                <div class="error-message">
+                    <p>{{ error }}</p>
+                </div>
+                {% endif %}
+
+                {% if shipping_costs %}
+                <div class="results">
+                    <h2>Shipping Options for {{ weight }} pound package</h2>
+
+                    <div class="shipping-options">
+                        {% for method, cost in shipping_costs.items() %}
+                        <div class="shipping-option {% if method == cheapest_method %}cheapest{% endif %}">
+                            <div class="shipping-method">
+                                {{ method }}
+                                {% if method == cheapest_method %}
+                                <span class="best-value">BEST VALUE</span>
+                                {% endif %}
+                            </div>
+                            <div class="shipping-cost">${{ "%.2f"|format(cost) }}</div>
+                            <div class="shipping-icon">
+                                {% if method == "Ground Shipping" %}
+                                <div class="icon truck-icon"></div>
+                                {% elif method == "Premium Ground Shipping" %}
+                                <div class="icon premium-icon"></div>
+                                {% else %}
+                                <div class="icon drone-icon"></div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="recommendation">
+                        <p>The cheapest shipping method is <strong>{{ cheapest_method }}</strong>, which would cost <strong>${{ "%.2f"|format(cheapest_cost) }}</strong></p>
+                    </div>
+                </div>
+                {% endif %}
+
+                <div class="shipping-info">
+                    <h3>About Our Shipping Methods</h3>
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <h4>Ground Shipping</h4>
+                            <p>Standard shipping with flat fee of $20 plus weight-based charges.</p>
+                            <ul>
+                                <li>≤ 2 lb: $1.50/lb</li>
+                                <li>2-6 lb: $3.00/lb</li>
+                                <li>6-10 lb: $4.00/lb</li>
+                                <li>> 10 lb: $4.75/lb</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Premium Ground</h4>
+                            <p>Faster ground shipping with a flat rate of $125 regardless of weight.</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Drone Shipping</h4>
+                            <p>Fastest delivery with no flat fee, only weight-based charges.</p>
+                            <ul>
+                                <li>≤ 2 lb: $4.50/lb</li>
+                                <li>2-6 lb: $9.00/lb</li>
+                                <li>6-10 lb: $12.00/lb</li>
+                                <li>> 10 lb: $14.25/lb</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 - Created for Codecademy Python Course</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,273 @@
+/* Shipping Calculator specific styles */
+.shipping-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.instructions {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    color: #34495e;
+}
+
+.weight-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.calculate-btn {
+    display: block;
+    width: 100%;
+    background-color: #27ae60;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.calculate-btn:hover {
+    background-color: #219653;
+}
+
+.error-message {
+    background-color: #e74c3c;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.results {
+    margin: 40px 0;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.results h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.shipping-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.shipping-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.shipping-option:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.shipping-option.cheapest {
+    border: 2px solid #27ae60;
+    background-color: rgba(39, 174, 96, 0.05);
+}
+
+.shipping-method {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    position: relative;
+}
+
+.best-value {
+    position: absolute;
+    top: -12px;
+    right: -40px;
+    background-color: #27ae60;
+    color: white;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 10px;
+    transform: rotate(5deg);
+}
+
+.shipping-cost {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e67e22;
+}
+
+.shipping-option.cheapest .shipping-cost {
+    color: #27ae60;
+}
+
+.shipping-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.truck-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,60 H70 V30 H10 Z" fill="%23e67e22" stroke="%23333" stroke-width="2"/><path d="M70,60 H90 V40 H70 Z" fill="%23d35400" stroke="%23333" stroke-width="2"/><circle cx="25" cy="65" r="10" fill="%23333"/><circle cx="75" cy="65" r="10" fill="%23333"/></svg>');
+}
+
+.premium-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,60 H70 V30 H10 Z" fill="%233498db" stroke="%23333" stroke-width="2"/><path d="M70,60 H90 V40 H70 Z" fill="%232980b9" stroke="%23333" stroke-width="2"/><circle cx="25" cy="65" r="10" fill="%23333"/><circle cx="75" cy="65" r="10" fill="%23333"/><text x="40" y="50" font-size="18" fill="%23fff">VIP</text></svg>');
+}
+
+.drone-icon {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="10" fill="%23333"/><path d="M50,40 L30,30 L70,30 Z" fill="%23333"/><path d="M50,60 L30,70 L70,70 Z" fill="%23333"/><path d="M40,50 L30,30 L30,70 Z" fill="%23333"/><path d="M60,50 L70,30 L70,70 Z" fill="%23333"/></svg>');
+}
+
+.recommendation {
+    text-align: center;
+    margin: 30px 0;
+    padding: 15px;
+    background-color: #f1f9f1;
+    border-radius: 8px;
+    border-left: 5px solid #27ae60;
+}
+
+.recommendation p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.shipping-info {
+    margin: 40px 0;
+}
+
+.shipping-info h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.info-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h4 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.info-card p {
+    margin-bottom: 15px;
+    color: #7f8c8d;
+}
+
+.info-card ul {
+    list-style-type: none;
+    padding-left: 5px;
+}
+
+.info-card li {
+    margin-bottom: 8px;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .shipping-container {
+        padding: 0 15px;
+    }
+
+    .weight-form {
+        padding: 20px;
+    }
+
+    .shipping-option {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .best-value {
+        position: static;
+        display: inline-block;
+        margin-top: 5px;
+        transform: none;
+    }
+
+    .shipping-cost {
+        font-size: 1.4rem;
+    }
+
+    .info-cards {
+        grid-template-columns: 1fr;
+    }
+}

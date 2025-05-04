@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Codecademy Python Projects</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Flask Projects</h1>
+            <p class="subtitle">Codecademy Python Course</p>
+        </header>
+
+        <main>
+            <div class="project-cards">
+                <div class="card">
+                    <div class="card-content">
+                        <h2>Magic 8 Ball</h2>
+                        <p>Ask the mystical Magic 8 Ball any question and receive wisdom from beyond!</p>
+                        <div class="card-image magic8-icon"></div>
+                        <a href="/magic8ball" class="btn">Try it out</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content">
+                        <h2>Shipping Calculator</h2>
+                        <p>Calculate shipping costs based on weight and destination.</p>
+                        <div class="card-image shipping-icon"></div>
+                        <a href="/shipping" class="btn">Try it out</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 - Created for Codecademy Python Course</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,64 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Magic 8 Ball</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/magic8ball.css') }}">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Magic 8 Ball</h1>
-            <a href="/" class="back-link">← Back to Home</a>
-        </header>
+{% extends 'base.html' %}
 
-        <main>
-            <div class="magic8-container">
-                <div class="instructions">
-                    <p>Ask the Magic 8 Ball a question and receive mystical wisdom!</p>
-                </div>
+{% block title %}Magic 8 Ball | Codecademy Projects by Heath Babb{% endblock %}
 
-                <form method="POST" class="question-form">
-                    <div class="form-group">
-                        <label for="name">Your Name (optional):</label>
-                        <input type="text" id="name" name="name" value="{{ name }}" placeholder="Enter your name">
-                    </div>
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/magic8ball.css') }}">
+{% endblock %}
 
-                    <div class="form-group">
-                        <label for="question">Your Question:</label>
-                        <input type="text" id="question" name="question" value="{{ question }}" placeholder="What would you like to know?" required>
-                    </div>
-
-                    <button type="submit" class="shake-btn">Shake the Magic 8 Ball</button>
-                </form>
-
-                {% if answer %}
-                <div class="result">
-                    <div class="question-display">
-                        {% if name %}
-                            <p><span class="user-name">{{ name }}</span> asks:</p>
-                        {% else %}
-                            <p>Question:</p>
-                        {% endif %}
-                        <p class="question-text">"{{ question }}"</p>
-                    </div>
-
-                    <div class="magic-ball">
-                        <div class="magic-answer">
-                            <p>{{ answer }}</p>
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-            </div>
-        </main>
-
-        <footer>
-            <p>&copy; 2025 - Created for Codecademy Python Course</p>
-        </footer>
+{% block content %}
+<div class="magic8-container">
+    <div class="instructions">
+        <p>Ask the Magic 8 Ball a question and <br /> receive mystical wisdom!</p>
     </div>
-</body>
-</html>
+
+    <form method="POST" class="question-form">
+        <div class="form-group">
+            <label for="name">Your Name (optional):</label>
+            <input type="text" id="name" name="name" value="{{ name }}" placeholder="Enter your name">
+        </div>
+
+        <div class="form-group">
+            <label for="question">Your Question:</label>
+            <input type="text" id="question" name="question" value="{{ question }}" placeholder="What would you like to know?" required>
+        </div>
+
+        <button type="submit" class="shake-btn">Shake the Magic 8 Ball</button>
+    </form>
+
+    {% if answer %}
+    <div class="result">
+        <div class="question-display">
+            {% if name %}
+                <p><span class="user-name">{{ name }}</span> asks:</p>
+            {% else %}
+                <p>Question:</p>
+            {% endif %}
+            <p class="question-text">"{{ question }}"</p>
+        </div>
+
+        <div class="magic-ball">
+            <div class="magic-answer">
+                <p>{{ answer }}</p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

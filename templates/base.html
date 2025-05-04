@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="author" content="Heath Babb">
+        <title>{% block title %}Codecademy Projects by Heath Babb{% endblock %}</title>
+    
+        <meta name="description" content="Explore interactive Python Flask projects created by Heath Babb for Codecademy, including a Magic 8 Ball and Shipping Calculator.">
+        <meta name="keywords" content="Flask, Python, Codecademy, Heath Babb, Magic 8 Ball, Shipping Calculator, Python Projects">
+        <meta name="author" content="Heath Babb">
+    
+        <meta property="og:title" content="Heath Babb's Flask Projects" />
+        <meta property="og:description" content="Try interactive Python web apps like the Magic 8 Ball and Shipping Calculator built with Flask." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yourdomain.com/" />
+        <meta property="og:image" content="https://yourdomain.com/static/images/preview.jpg" />
+    
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Heath Babb's Flask Projects" />
+        <meta name="twitter:description" content="Explore Python Flask apps by Heath Babb: Magic 8 Ball and Shipping Calculator." />
+        <meta name="twitter:image" content="https://yourdomain.com/static/images/preview.jpg" />
+    
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Heath Babb's Flask Projects",
+          "url": "https://yourdomain.com",
+          "author": {
+            "@type": "Person",
+            "name": "Heath Babb"
+          },
+          "description": "Interactive Python web apps built with Flask for Codecademy course."
+        }
+        </script>
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        {% block head %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>My Python3 Projects</h1>
+                <p class="subtitle">Codecademy Learn Python3 Course</p>
+                <a href="{{ url_for('home') }}" class="btn">Home</a>
+            </header>
+            <main>
+                {% block content %}
+                {% endblock %}
+            </main>
+            <footer>
+                <p>
+                    &copy; <span id="year"></span> - Created for Codecademy Python Course by Heath Babb. All rights reserved.
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/hbabb" target="_blank"><i data-lucide="github"></i></a>
+                    <a href="https://linkedin.com/in/heath-babb" target="_blank"><i data-lucide="linkedin"></i></a>
+                    <a href="https://x.com/heath2420" target="_blank"><i data-lucide="twitter"></i></a>
+                </div>
+                <script>
+                    document.getElementById('year').textContent = new Date().getFullYear();
+                </script>
+
+            </footer>
+        </div>
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <script>
+            lucide.createIcons();
+        </script>          
+    </body>
+</html>
